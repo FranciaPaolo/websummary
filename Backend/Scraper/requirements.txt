@@ -13,3 +13,4 @@ fastapi
 uvicorn
 apscheduler
 PyJWT
+pygame
