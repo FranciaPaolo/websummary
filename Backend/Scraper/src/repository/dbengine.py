@@ -7,17 +7,25 @@ import model.usermember
 import model.article
 
 class DbEngine:
-    """
-    This class provides a default implementation for the repository interface.
-    It uses an SQLite database to store and retrieve articles.
-    """
+
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(DbEngine, cls).__new__(cls)
+            cls._instance.__initialized = False
+        return cls._instance
 
     def __init__(self):
+        if self.__initialized:
+            return
+
         # Create the database tables if they don't exist
         self.engine = create_engine(config.app_settings["database_url"])#, echo=True)
         self.createDefaults(self.engine)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
+        self.__initialized = True
 
     @staticmethod
     def createDefaults(_engine:Engine):

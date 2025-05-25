@@ -13,7 +13,7 @@ class UserMember(Base):
     __tablename__ = 'user'  # The name of the table
     __table_args__ = {'schema': 'users'}  # Specify the schema for the table
 
-    id_user = Column(Integer, primary_key=True, auto_increment=True)
+    id_user = Column(Integer, primary_key=True, autoincrement=True)
     fullname = Column(String)
     email = Column(String)
     picture = Column(String)
@@ -48,6 +48,9 @@ class UserMember(Base):
 
     def setLastToken(self, token:str):
         self.last_token=token
+
+    def setRole(self, role:str):
+        self.role=role
 
     def getIdUser(self):
         return self.id_user

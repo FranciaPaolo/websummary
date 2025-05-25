@@ -9,6 +9,9 @@ Backend/Scraper/src/repository/__pycache__
 Backend/Scraper/src/services/__pycache__
 Backend/Scraper/src/summarizer/__pycache__
 Backend/Scraper/src/utility/__pycache__
+Backend/Scraper/src/auth/__pycache__
+Backend/Scraper/src/dto/__pycache__
+Backend/Scraper/src/config/auth/__pycache__
 Backend/Scraper/logs
 Backend/Scraper/data
 Backend/Scraper/.env

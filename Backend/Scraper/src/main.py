@@ -7,6 +7,8 @@ import logging
 import logging.config
 from config import config as config_settings
 from api.summaryApi import router as summarizer_router
+from api.authApi import router as auth_router
+from api.usersApi import router as user_router
 from apscheduler.schedulers.background import BackgroundScheduler
 from services.background_service import BackgroundService
 from apscheduler.triggers.interval import IntervalTrigger
@@ -48,6 +50,8 @@ app=FastAPI(title="Langchain Server",
         lifespan=lifespan)
 
 app.include_router(summarizer_router)
+app.include_router(auth_router)
+app.include_router(user_router)
 
 # Configure CORS middleware
 app.add_middleware(
@@ -88,14 +92,16 @@ async def custom_404_handler(request: Request, exc: Exception):
     )
 
 # check mandatory env variables
-logger.debug(f"...ensure mandatory environment variables are set, you can use the .env file...")
 if os.environ.get("LANG_SMITH") is None or os.environ.get("LANG_SMITH") == "":
+    logger.debug(f"...ensure mandatory environment variables are set, you can use the .env file...")
     raise ValueError("Missing mandatory environment variable: LANG_SMITH")
 
 if os.environ.get("GROQ_API_KEY") is None or os.environ.get("GROQ_API_KEY") == "":
+    logger.debug(f"...ensure mandatory environment variables are set, you can use the .env file...")
     raise ValueError("Missing mandatory environment variable: GROQ_API_KEY")
 
 if os.environ.get("USER_AGENT") is None or os.environ.get("USER_AGENT") == "":
+    logger.debug(f"...ensure mandatory environment variables are set, you can use the .env file...")
     raise ValueError("Missing mandatory environment variable: USER_AGENT")
 
 

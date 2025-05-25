@@ -10,8 +10,7 @@ logger = logging.getLogger('MainLogger')
 
 class SummarizerService:
     def __init__(self):
-        self.engine=DbEngine()
-        self.repository = ArticleRepository(self.engine)
+        self.repository = ArticleRepository(DbEngine())
         self.llm_service = LLMService()
         self.summarizer = WebSummarizer(self.llm_service)
         self.mp3_dir = "data/speech/"

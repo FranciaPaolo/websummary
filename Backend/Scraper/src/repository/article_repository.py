@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from typing import List
 from model.article import Article, Site, ArticleRead
 from repository.dbengine import DbEngine
@@ -24,18 +25,25 @@ class ArticleRepository:
         finally:
             session.close()
 
-    def list_latest_articles_by_user(self, id_user:int, site_urls:List[str], sort_desc_date:bool=True, page:int=0, itemsPerPage:int=10):
+    def list_latest_articles_by_user(self, id_user:int,
+                                     site_urls:List[str],
+                                     last_days:int=3,
+                                     sort_desc_date:bool=True,
+                                     page:int=0,
+                                     itemsPerPage:int=10):
         session = self.db_engine.get_session()
         try:
             offset=page*itemsPerPage
 
             # Exclude articles that are in ArticleRead for the given user
+            min_date = datetime.today()- timedelta(days=last_days)
             query = session.query(Article.id, Article.title, Article.site_url, Article.update_date)\
                 .filter(
                     Article.site_url.in_(site_urls),
                     ~Article.id.in_(
                         session.query(ArticleRead.id_article).filter(ArticleRead.id_user == id_user)
-                    )
+                    ),
+                    Article.update_date >= min_date
                 )
             # Apply sort
             if sort_desc_date:

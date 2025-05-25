@@ -1,8 +1,12 @@
 # Backend.Scraper
 
-## Run it
+This project contains the Backend Api and the websummarizer Task.\
+It's a Python fastapi project.
 
-Setup environment variable creating a `.env` file in the root folder (in the same folder of this readme):
+## How to start and debug
+
+Setup environment variable creating a `.env` file in the root folde
+r (in the same folder of this readme):
 ```
 LANG_SMITH=""
 GROQ_API_KEY=""
