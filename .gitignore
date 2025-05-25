@@ -13,6 +13,17 @@ Backend/Scraper/logs
 Backend/Scraper/data
 Backend/Scraper/.env
 
+Backend/Libs/venv
+Backend/Libs/package_auth/build
+Backend/Libs/package_auth/package_auth.egg-info
+Backend/Libs/package_auth/__pycache__
+Backend/Libs/package_auth/package_auth/__pycache__
+Backend/Libs/test/.pytest_cache
+Backend/Libs/test/__pycache__
+Backend/Libs/test/api/__pycache__
+Backend/Libs/test/tests/.pytest_cache
+Backend/Libs/test/tests/__pycache__
+
 UI/node_modules
 UI/package-lock.json
 UI/build
