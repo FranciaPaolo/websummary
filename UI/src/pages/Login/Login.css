@@ -1,0 +1,20 @@
+.rhombus {
+    height: 50px;
+    width: 100px;
+    aspect-ratio: 1;
+    clip-path: polygon(0 0,100% 0,50% 100%);
+    background: #a21eb3;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    filter: invert(100%);
+  }
+
+  .dark .logo {
+    filter: invert(0);
+  }

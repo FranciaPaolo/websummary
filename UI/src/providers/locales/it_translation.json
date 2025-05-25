@@ -1,0 +1,35 @@
+{
+    "home_welcome": "Benvenuto in Web Summarizer!",
+    "home_welcome_subtitle": "Sintetizza e ascolta i nuovi articoli dei siti che desideri utilizzando l'AI.",
+    "home_greeting": "Ciao, {{name}}!",
+    "home_start": "Iniziamo!",
+    "home_login_required": "Per iniziare  accedi tramite 'Signin'.",
+
+    "listen_title": "Ascolta la sintesi degli articoli dei siti di interesse:",
+    "listen_loadmore": "Carica altri articoli",
+
+    "settings_language": "Lingua",
+    "settings_theme": "Tema",
+    "settings_system": "Impostazioni Sistema",
+    "settings_preferences": "Preferenze",
+    "settings_sites": "Siti",
+    "settings_notification": "Notifiche",
+    "settings_wip_sites": "Non è ancora possibile aggiungere o selezionare siti.",
+
+    "aboutus_title": "About Us",
+    "aboutus_description": "Benvenuto in WebSummarizer, dove le letture lunghe diventano brevi e piacevoli.\n\nQuesto sito è stato creato da un ragazzo con una missione semplice: risparmiare tempo. \nStanco di scorrere infiniti articoli solo per trovare i punti chiave? Anche lui lo era. \nEcco perché ha creato WebSummarizer: un modo rapido e semplice per cogliere l'essenza dei contenuti web senza sovraccaricarsi.\n\nChe tu stia effettuando ricerche, imparando o semplicemente curioso, WebSummary ti aiuta a superare il rumore e a concentrarti su ciò che conta. \nSi tratta di maggiore chiarezza, meno disordine e di restituirti la cosa più preziosa che hai: il tempo.",
+
+    "support_inputask_footer": "Chiedi supporto di tipo generale per la piattaforma.",
+    "support_inputask_placeholder": "Scrivi qui per supporto",
+
+    "login_access":"Accedi",
+    "login_with_google":"Accedi con Google",
+    "login_description": "Accedi per iniziare a sintetizzare e ascoltare gli articoli dei tuoi siti preferiti.",
+
+    "login_google_registration_completed": "Registrazione completata con successo! Rieffettua la login per continuare.",
+
+    "common_hello": "Ciao!",
+
+    "privacy_alert": "Utilizziamo i cookie e il local storage solo per scopi essenziali.",
+    "privacy_text": "Questo sito web utilizza il local storage solo per scopi essenziali, come ricordare il tuo consenso ai cookie o preferenze grafiche. Nessun dato personale viene raccolto o condiviso con terze parti."
+}

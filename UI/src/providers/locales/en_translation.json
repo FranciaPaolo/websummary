@@ -1,0 +1,34 @@
+{
+    "home_welcome": "Welcome in Web Summarizer!",
+    "home_welcome_subtitle": "Sintetizza e ascolta i nuovi articoli dei siti che desideri utilizzando l'AI.",
+    "home_greeting": "Hello, {{name}}!",
+    "home_start": "Let's start!",
+    "home_login_required": "To start 'Signin' so you can listen to your articles.",
+
+    "listen_title": "Listen the summary of the website of your interest:",
+    "listen_loadmore": "Load More",
+
+    "settings_language": "Language",
+    "settings_theme": "Theme",
+    "settings_system": "System Settings",
+    "settings_sites": "Sites",
+    "settings_preferences": "Preferences",
+    "settings_wip_sites": "It's not yet possible to add or remove sites.",
+
+    "aboutus_title": "About Us",
+    "aboutus_description": "Welcome to WebSummarizer - where long reads become short and sweet.\n\nThis site was created by one guy with a simple mission: to save time. \nTired of scrolling through endless articles just to find the key points? So was he. \nThat’s why he built WebSummarizer — a fast, no-fluff way to get the essence of web content without the overwhelm.\n\nWhether you’re researching, learning, or just curious, WebSummary helps you cut through the noise and focus on what matters. \nIt's all about more clarity, less clutter, and giving you back the most valuable thing you have — time.",
+
+    "support_inputask_footer": "You can ask general support for this platform.",
+    "support_inputask_placeholder": "Type here for support",
+
+    "login_access":"Login",
+    "login_with_google":"Login with Google",
+    "login_description": "Log in to start summarizing and listening to articles from your favorite sites.",
+
+    "login_google_registration_completed": "Registration completed successfully! Do again the signin please.",
+
+    "common_hello": "Hi!",
+
+    "privacy_alert": "We use local storage only for essential site functionality.",
+    "privacy_text": "This website uses local storage and cookies only for essential purposes, such as remembering your cookie consent and user interface preferences. No personal data is collected or shared with third parties."
+}

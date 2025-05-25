@@ -1,0 +1,84 @@
+.appnav {
+    background: #a21eb3;
+}
+
+body.dark .nav {
+    background: #15171c;
+}
+
+.nav-app-title {
+    text-align: center;
+    margin-left: 60px;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .nav-app-title {
+        margin-left: 10px;
+    }
+}
+
+.sidebarnav {
+    background: #1f1f24;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    transition: 350ms;
+    z-index: 110;
+}
+
+body.dark .sidebarnav {
+    background: #37383a;
+}
+
+.nav-signin {
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+}
+
+.appLogo {
+    height: 40px;
+    margin-left: 50px;
+}
+
+.sidebarLink {
+    display: flex;
+    color: #e1e9fc;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    list-style: none;
+    height: 20px;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+.sidebarLink:hover {
+    background: #011208;
+    border-left: 4px solid rgb(0, 51, 128);
+    cursor: pointer;
+}
+
+.sidebarLabel {
+    margin-left: 16px;
+}
+
+.dropdownLink {
+    background: #252831;
+    height: 40px;
+    padding-left: 3rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 0.8em;
+}
+
+.dropdownLink:hover {
+    background: rgb(0, 30, 128);
+    cursor: pointer;
+}

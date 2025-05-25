@@ -1,0 +1,110 @@
+:root {
+  /* --background-color: #15171c; */
+  --background-color-main: white;
+  --font-color-main: black;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--background-color-main);
+  color: var(--font-color-main);
+}
+
+body.dark {
+  background-color: #15171c;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+.very-small {
+  font-size: 0.75rem !important;
+}
+
+.content-container {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
+  overflow-y: auto;
+}
+
+body.dark .content-container {
+  background-color: #37394a;
+}
+
+/*  Bootstrap override ********************************************/
+
+.btn-primary {
+  border-color: #a21eb3;
+  background-color: #a21eb3;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #6e1c79;
+  color: white;
+  border-color: #6e1c79;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+  border-color: #a21eb3;
+  background-color: #a21eb3;
+}
+
+.btn-outline-primary {
+  color: #a21eb3;
+  border-color: #a21eb3;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+  background-color: #6e1c79;
+  color: white;
+  border-color: #6e1c79;
+}
+.btn-outline-primary:focus {
+  border: 1px solid #ab68b4;
+}
+
+.btn-link {
+  color: #a21eb3;
+}
+.btn-link:hover,
+.btn-link:active {
+  color: #a21eb3;
+}
+.btn-link:focus {
+  color: #a21eb3;
+  background-color: transparent;
+}
+
+.modal-title {
+  font-size: 1rem;
+}
+
+/*  End Bootstrap override ********************************************/
+
+
+.h-35px {
+  height: 35px;
+}

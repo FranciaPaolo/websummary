@@ -1,0 +1,53 @@
+
+.dropDownItem
+{
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.dropDownItem:hover
+{
+    background-color: lightgray;
+}
+
+
+/*React Select Dark style*/
+body.dark .react-select-container {
+    background-color: #212529 !important;
+    color: #fff !important;
+  }
+  
+  body.dark .react-select__control {
+    background-color: #212529 !important;
+    border-color: #444 !important;
+    color: #fff !important;
+  }
+  
+  body.dark .react-select__input {
+    color: #fff !important;
+  }
+  
+  body.dark .react-select__menu {
+    background-color: #212529 !important;
+    color: #fff !important;
+  }
+  
+  body.dark .react-select__option {
+    background-color: #212529 !important;
+    color: #fff !important;
+  }
+  
+  body.dark .react-select__option--is-focused {
+    background-color: #555 !important;
+  }
+  
+  body.dark .react-select__option--is-selected {
+    background-color: #212529 !important;
+    color: #fff !important;
+  }
+
+  body.dark .react-select__placeholder {
+    color: #fff !important;
+  }
+  /*End React Select Dark style*/
