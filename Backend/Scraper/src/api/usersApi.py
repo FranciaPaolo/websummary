@@ -11,7 +11,8 @@ from config.config import app_settings
 router = APIRouter()
 logger = logging.getLogger('MainLogger')
 
-@router.get("/users/user/", )
+@router.get("/users/user")
+@router.get("/users/user/")
 async def user(user: JwtTokenObj = Depends(requires_role(["customer"], app_settings)), user_service: UserService = Depends(get_user_service)):
     # TODO store the jwt in a database for validation
     # logger.debug(authorization)
@@ -19,7 +20,8 @@ async def user(user: JwtTokenObj = Depends(requires_role(["customer"], app_setti
     logger.debug(f"GET /users/user/ idUser:{id_user}")
     return user_service._dbRepo_users.find_by_id(id_user)
 
-@router.post("/users/requestaccess/", )
+@router.post("/users/requestaccess")
+@router.post("/users/requestaccess/")
 async def requestaccess(request:RequestAccess, captcha_service: GoogleRecaptchaProvider = Depends(get_google_recaptcha_provider), user_service: UserService = Depends(get_user_service)):
     logger.debug(f"GET /auth/requestaccess/ email:{request.email} captchatoken:{request.captchatoken}")
     isvalid=captcha_service.isCaptchaValid(request.captchatoken)

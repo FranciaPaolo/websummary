@@ -17,7 +17,8 @@ from model.usermember import UserMember
 router = APIRouter()
 logger = logging.getLogger('MainLogger')
 
-@router.post("/auth/accesstoken/",)
+@router.post("/auth/accesstoken/")
+@router.post("/auth/accesstoken")
 async def access_tokenrefresh(authRequest:AuthRequestDto,
                               googleAuthProvider: GoogleAuthProvider = Depends(get_google_auth_provider),
                               userService: UserService = Depends(get_user_service)):
@@ -47,7 +48,8 @@ async def access_tokenrefresh(authRequest:AuthRequestDto,
     else:
         raise ValueError("Invalid provider")
 
-@router.get("/auth/refreshtoken/", )
+@router.get("/auth/refreshtoken/")
+@router.get("/auth/refreshtoken")
 async def refresh_token(token: str, user: JwtTokenObj = Depends(requires_role(["customer"], app_settings))):#q: str, authorization: str = Header(...)):
     logger.debug(f"GET /auth/refreshtoken/?token={token}")
     if not token:

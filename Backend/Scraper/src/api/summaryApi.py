@@ -16,13 +16,15 @@ router = APIRouter()
 logger = logging.getLogger('MainLogger')
 
 
-@router.get("/summary/sitesurl", )
+@router.get("/summary/sitesurl")
+@router.get("/summary/sitesurl/")
 async def get_sitesurl(user: JwtTokenObj = Depends(requires_role(["customer"], app_settings))):
     # TODO filter by user
     sites = summarizer_service.repository.list_sites()
     return [site.site_url for site in sites]
 
-@router.post("/summary/articleslatest", )
+@router.post("/summary/articleslatest")
+@router.post("/summary/articleslatest/")
 async def get_articlelatest(filters:FilterArticles, user: JwtTokenObj = Depends(requires_role(["customer"], app_settings))):
     id_user =  user.get_id_user()
     return summarizer_service.repository.list_latest_articles_by_user(
@@ -33,7 +35,8 @@ async def get_articlelatest(filters:FilterArticles, user: JwtTokenObj = Depends(
         page=filters.page,
         itemsPerPage=filters.itemsPerPage)
 
-@router.get("/summary/audio", )
+@router.get("/summary/audio")
+@router.get("/summary/audio/")
 async def get_articlelatest(id:str= Query(...)):
     # TODO check if article can be read by the user
     audio_file = summarizer_service.repository.get_article_audio(id)
@@ -43,7 +46,8 @@ async def get_articlelatest(id:str= Query(...)):
 class ArticleReadRequest(BaseModel):
     id_articles: List[str]
 
-@router.post("/summary/articlesread", )
+@router.post("/summary/articlesread")
+@router.post("/summary/articlesread/")
 async def post_article_read(request:ArticleReadRequest, user: JwtTokenObj = Depends(requires_role(["customer"], app_settings))):
     id_user =  user.get_id_user()
     summarizer_service.repository.mark_article_as_read(id_user=id_user, id_articles=request.id_articles)

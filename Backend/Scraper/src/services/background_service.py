@@ -16,7 +16,10 @@ class BackgroundService:
 
             for idx, site in enumerate(sites, start=1):
                 logger.info(f"[{idx}/{len(sites)}] summarizing website {site.site_url}...")
-                summarizer_service.summarize_new_articles(site_url=site.site_url, max_articles=config.app_settings["summary_task_max_articles"])
+                summarizer_service.summarize_new_articles(
+                    site_url=site.site_url,
+                    article_prefix=site.article_prefix,
+                    max_articles=config.app_settings["summary_task_max_articles"])
                 logger.info(f"[{idx}/{len(sites)}] summarizing website {site.site_url} completed!")
         except Exception as e:
             logger.error(f"Error in background task: {str(e)}")
