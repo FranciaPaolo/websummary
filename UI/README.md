@@ -36,3 +36,8 @@ Open the client page and create a new client:
 * Change the config.js accordingly, LOGIN_GOOGLE_URL
 
 Docs: https://developers.google.com/identity/openid-connect/
+
+## Recaptcha
+
+Open the admin page of the Recaptcha:
+* https://www.google.com/recaptcha/admin

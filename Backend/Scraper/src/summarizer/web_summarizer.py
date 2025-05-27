@@ -18,9 +18,24 @@ class WebSummarizer:
     def get_title(self, text: str) -> str:
         return self.llm_service.get_title(text)
 
-    def summarize_url(self, url: str) -> str:
+    def summarize_url(self, url: str, css_selector:str=None) -> str:
         loader = WebBaseLoader(url)
         docs = loader.load()
+
+        # Truncate the document to 5000 characters if necessary TODO need to be more flexible
+        # This is a workaround to avoid issues with long texts in the LLM
+        if docs and hasattr(docs[0], "page_content"):
+            docs[0].page_content = docs[0].page_content[:5000]
+
+        # Extract only the div with class "article main-content"
+        # print(docs[0].page_content[:1000])  # Preview beginning
+        # if css_selector!= None:
+        #     soup = BeautifulSoup(docs[0].page_content, "html.parser")
+        #     article_div = soup.find("div", class_=css_selector)
+        #     if article_div:
+        #         print("found!!")
+        #         docs[0].page_content = article_div.get_text(separator="\n", strip=True)
+
         return self.llm_service.summarize_documents(docs)
 
     def summarize_urls(self, urls: List[str]) -> List[str]:
