@@ -107,7 +107,7 @@ const AudiosView = forwardRef(({ articleItems, hasMoreArticles, loadMore, openDe
                                         </svg>
                                     </button>
                                     <span className="card-title">{article.title}</span>
-                                    <p className="card-text"><small>{article.site_url}</small></p>
+                                    <p className="card-text"><a href={article.url} target='_blank' rel="noreferrer"><small>{article.site_url}</small></a></p>
                                     <div className="mt-auto">
                                         <audio src={apiSummary.getAudioUrl(article.id)} controls onEnded={() => onAudioEnded(article)} />
                                     </div>

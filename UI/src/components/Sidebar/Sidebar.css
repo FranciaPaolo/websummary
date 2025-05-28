@@ -16,6 +16,9 @@ body.dark .nav {
     .nav-app-title {
         margin-left: 10px;
     }
+    #ddinfo .dropdown-text {
+        display: none;
+    }
 }
 
 .sidebarnav {

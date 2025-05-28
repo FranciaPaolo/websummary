@@ -56,7 +56,7 @@ const Settings = () => {
           <h3 className="mt-5">{t('settings_preferences')}</h3>
           <div className="form-group mt-2">
             <label>{t('settings_sites')}:</label>
-            <p className="text-danger">
+            <p className="text-danger bg-white">
               <span role="img" aria-label="Work in progress" title="Work in progress">🚧</span>&nbsp;
               {t('settings_wip_sites')}&nbsp;
               <span role="img" aria-label="Work in progress" title="Work in progress">🚧</span>

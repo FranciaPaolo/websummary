@@ -90,7 +90,7 @@ const Listen = () => {
                 </div>
             </div>
 
-            <div className="d-flex justify-content-start my-3">
+            <div className="d-flex flex-wrap justify-content-start my-3">
                 {sites.current.map((site) => (
                     <button
                         key={site}
@@ -104,7 +104,7 @@ const Listen = () => {
 
             <div>
 
-                Latest:
+                Latest {selected_site ? `articles from ${selected_site}` : 'articles'}:
                 <AudiosViewByDate ref={audioViewByDate}
                     articleItems={articlesByDate}
                     openDetail={btnAudioModalShow}

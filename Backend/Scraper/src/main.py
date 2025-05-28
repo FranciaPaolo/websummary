@@ -33,13 +33,13 @@ scheduler = BackgroundScheduler()
 async def lifespan(app: FastAPI):
     # Startup logic
     scheduler.add_job(BackgroundService.summary_task, CronTrigger(hour="5", minute="0"))
-    #scheduler.start()
+    scheduler.start()
     logger.info("🔁 Scheduler started")
     try:
         yield  # Let the app run
     finally:
         # # Shutdown logic
-        #scheduler.shutdown()
+        scheduler.shutdown()
         logger.info("🛑 Scheduler stopped")
 
 

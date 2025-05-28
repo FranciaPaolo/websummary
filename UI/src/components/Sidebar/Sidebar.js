@@ -22,6 +22,10 @@ const Sidebar = () => {
     const { theme } = uITheme();
     const ref = useRef(null);
     const auth = useAuth();
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const showUsername = windowWidth >= 540 && (auth?.user?.isLoggedin);
+    const usernameText = showUsername? auth.user.fullname : '';
 
     const linkOnClick = () => {
         showSidebar();
@@ -59,9 +63,14 @@ const Sidebar = () => {
                 showSidebar();
             }
         };
+
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
+            window.removeEventListener('resize', handleResize);
         };
 
     }, [theme, sidebar, showSidebar, recursiveContains]); // theme is the dependency (when it change then React will re-execute the use effect)
@@ -81,13 +90,14 @@ const Sidebar = () => {
                             alt={auth?.user?.isLoggedin ? auth?.user?.fullname : 'empty'}
                             height={30} className="rounded-circle"
                             referrerPolicy="no-referrer"
+                            onClick={() => document.getElementById('ddinfo')?.click()}
                             style={{ display: auth && auth?.user?.isLoggedin ? 'inline-block' : 'none' }}
                         />
                         <DropdownButton
                             key="info"
                             id="ddinfo"
                             variant="btn btn-link bg-transparent text-white"
-                            title={auth?.user?.isLoggedin ? auth?.user?.fullname : 'empty'}
+                            title={usernameText}
                             style={{ display: auth && auth?.user?.isLoggedin ? 'inline-block' : 'none' }}
                         >
                             <Dropdown.Item eventKey="1" as={Link} to="/userinfo">Info</Dropdown.Item>

@@ -37,7 +37,7 @@ class ArticleRepository:
 
             # Exclude articles that are in ArticleRead for the given user
             min_date = datetime.today()- timedelta(days=last_days)
-            query = session.query(Article.id, Article.title, Article.site_url, Article.update_date)\
+            query = session.query(Article.id, Article.title, Article.site_url, Article.update_date, Article.url)\
                 .filter(
                     Article.site_url.in_(site_urls),
                     ~Article.id.in_(
@@ -54,8 +54,8 @@ class ArticleRepository:
             query = query.limit(itemsPerPage).offset(offset)
             articles = query.all()
 
-            return [{"id":id,"title": title, "site_url": site_url, "update_date": update_date}
-                    for id, title, site_url, update_date
+            return [{"id":id,"title": title, "site_url": site_url, "update_date": update_date, "url": url}
+                    for id, title, site_url, update_date, url
                     in articles]
         finally:
             session.close()

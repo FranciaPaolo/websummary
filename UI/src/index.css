@@ -75,6 +75,13 @@ body.dark .content-container {
 .btn-outline-primary {
   color: #a21eb3;
   border-color: #a21eb3;
+  background-color: white;
+}
+@media (prefers-color-scheme: dark) {
+  .btn-outline-primary {
+    border-color: #a21eb3;
+    background-color: rgb(207, 207, 207);
+  }
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:active {
