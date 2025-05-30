@@ -31,7 +31,7 @@ class ApiSummary {
             throw err;
         }
     }
-    async getLatestArticles(sitesurl, page = 0) {
+    async getLatestArticles(sitesurl, page = 0, limit = 5) {
         try {
             const requestOptions = {
                 method: 'POST',
@@ -42,7 +42,7 @@ class ApiSummary {
                     },
                     site_urls: sitesurl,
                     page: page,
-                    itemsPerPage: this.articles_itemsPerPage
+                    itemsPerPage: limit
                 })
             };
             let apiResponse = await fetch(`${this.baseURL}/summary/articleslatest/`, requestOptions) // ?q=${encodeURIComponent(requestText)}

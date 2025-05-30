@@ -61,11 +61,14 @@ const Listen = () => {
         setArticlesByDate(apiSummary.getGroupArticlesByDate(articles.current));
         setAudioModalShow(false);
     };
-    const btnLoadMore = async (page) => {
-        let articles_data = await apiSummary.getLatestArticles(selected_site ? [selected_site]: sites.current, page);
-        articles.current = [...articles.current, ...articles_data];
+    const btnLoadMore = async (page, limit) => {
+        const initial_size = articles.current.length;
+        let articles_data = await apiSummary.getLatestArticles(selected_site ? [selected_site]: sites.current, page, limit);
+        const existingIds = new Set(articles.current.map(a => a.id));
+        const newArticles = articles_data.filter(a => !existingIds.has(a.id));
+        articles.current = [...articles.current, ...newArticles];
         setArticlesByDate(apiSummary.getGroupArticlesByDate(articles.current));
-        setHasMoreArticles(articles_data.length !== 0);
+        setHasMoreArticles(articles_data.length !== initial_size);
     };
     const btnSelectSite = async (site) => {
         let site_url = site;

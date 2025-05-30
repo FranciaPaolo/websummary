@@ -14,6 +14,8 @@ const AudiosView = forwardRef(({ articleItems, hasMoreArticles, loadMore, openDe
     const selected_article = useRef(null);
     const apiSummary = new ApiSummary(auth);
     const pageNumber = useRef(0);
+    const itemsPerPage = 5;
+    const itemsLimit = useRef(itemsPerPage);
     const audioContainerRef = useRef(null);
 
     const btnOpenDetail = (article) => {
@@ -25,15 +27,16 @@ const AudiosView = forwardRef(({ articleItems, hasMoreArticles, loadMore, openDe
     };
 
     const btnLoadMore = async () => {
-        pageNumber.current++;
+        itemsLimit.current = itemsLimit.current + itemsPerPage;
 
         if (loadMore) {
-            loadMore(pageNumber.current); // TODO then?
+            loadMore(pageNumber.current, itemsLimit.current); // TODO then?
         }
     };
 
     const resetPageNumber = () => {
         pageNumber.current = 0;
+        itemsLimit.current = itemsPerPage;
     };
 
     const getCurrentAudio = (article) => {

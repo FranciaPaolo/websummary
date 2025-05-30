@@ -3,17 +3,22 @@ import CookieConsent from "../../components/CookieConsent/CookieConsent";
 import { useTranslation } from 'react-i18next';
 import * as FaIcons from "react-icons/fa";
 import { useAuth } from "../../providers/auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
 
   const { t } = useTranslation();
   const auth = useAuth();
+  const navigate = useNavigate();
 
   const btnStart = (e) => {
     if(!(auth.user && auth.user.email)){
       auth.modal_handleShow("Signin",t('home_login_required'));
       e.preventDefault();
       return;
+    }
+    if(e.target.nodeName!=="A"){
+      navigate("/listen");
     }
   };
 
