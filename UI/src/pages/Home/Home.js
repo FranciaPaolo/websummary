@@ -24,7 +24,7 @@ const Home = () => {
         <p>{t('home_welcome_subtitle')}</p>
 
         <div className="flow-container">
-          <div className="step">
+          <div className="step" onClick={btnStart}>
             <i><FaIcons.FaNewspaper /></i>
             <div className="label">Text Articles</div>
           </div>
@@ -33,7 +33,7 @@ const Home = () => {
             <FaIcons.FaArrowRight className="arrow" />
           </div>
 
-          <div className="step">
+          <div className="step" onClick={btnStart}>
             <i><FaIcons.FaRobot /></i>
             <div className="label">AI Summary</div>
           </div>
@@ -42,7 +42,7 @@ const Home = () => {
             <FaIcons.FaArrowRight className="arrow" />
           </div>
 
-          <div className="step">
+          <div className="step" onClick={btnStart}>
             <i><FaIcons.FaHeadphonesAlt /></i>
             <div className="label">Audio Output</div>
           </div>

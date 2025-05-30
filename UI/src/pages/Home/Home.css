@@ -126,4 +126,6 @@
 
 .btn-start {
     width: 200px;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
 }
