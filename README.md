@@ -1,8 +1,14 @@
 # Web Summary
-Summarize a list of websites to stay updated on the news.
+Summarize and create audio of a list of websites to stay updated on the news.
 
 The idea started with the need to stay updated on a list of Information Technology websites,
 the aim is to reduce the time to surf periodically this websites to read news giving this job to AI.
+
+It's a very easy flow:
+* websites of interest are scanned for new articles every day;
+* a short summary is generated with LLM;
+* then the text is converted into audio (so that I can listen to it when I'm in the car);
+
 
 ![Home Page](Docs/screen_home.png)
 
