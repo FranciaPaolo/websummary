@@ -20,14 +20,14 @@ Pre-requisites:
 
 <br>
 
-1. Start the dabase using docker
+### 1. Start the dabase using docker
 
 ```
 docker compose -p websummary up -d
 ```
 <br>
 
-2. Setup the Libs python package
+### 2. Setup the Libs python package
 
 * Go in the `Backend.Libs` folder > `cd Backend/Libs`
 * Create a conda virtual environment
@@ -43,7 +43,7 @@ pip install -e .
 ```
 <br>
 
-3. Start the python backend api service
+### 3. Start the python backend api service
 
 * Go in the `Backend.Scraper` folder > `cd Backend/Scraper`
 * Setup the conda virtual environment
@@ -74,7 +74,7 @@ pip install -e .
 
 <br>
 
-4. Start the UI that is in React
+### 4. Start the UI that is in React
 
 * Open the `config.js` file and setup the keys
   * Setup the `LOGIN_GOOGLE_URL` you need to change the `client_id` query parameter there, so find and replace the `client_id` with the Google client_id that has been setup in python
