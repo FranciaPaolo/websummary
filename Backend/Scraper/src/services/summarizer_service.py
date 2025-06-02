@@ -24,8 +24,12 @@ class SummarizerService:
         for i, article_url in enumerate(new_urls):
             logger.info(f"--- Summary {i} ---\n{article_url}")
             article=Article.create(url=article_url, site_url=site_url, summary="", title="")
+            logger.info(f"--- summarizing...")
             article.summary = self.summarizer.summarize_url(article.url)
+            logger.info(f"--- summary completed.")
+            logger.info(f"--- getting title...")
             article.title = self.summarizer.get_title(article.summary)
+            logger.info(f"--- get title completed.")
             logger.info(f"title: {article.title}")
             self.summarizer.save_speech(f"{article.title} {article.summary}", article.speech_file)
             self.repository.add_article(article)

@@ -4,6 +4,7 @@ langgraph
 beautifulsoup4
 langchain-community
 langchain-groq
+langchain-ollama
 langchain-openai
 sqlalchemy
 psycopg2-binary
