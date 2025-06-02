@@ -8,6 +8,8 @@ app_settings = dict(
 
     # SummaryTask
     summary_task_max_articles=5,
+    summary_task_llm_runner="ollama", # ollama, groq
+    summary_task_delete_old_days=30, # after x days articles and audios are deleted
 
     # Jwt
     auth_jwt_key="QsvUdnN3rx`GQF,'#'V;;3Ld>q^sHtk~9lMq*-1fUXI}\"g_Goz2ixAx*POQR{oD",

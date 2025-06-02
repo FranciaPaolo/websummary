@@ -13,7 +13,6 @@ class SummarizerService:
         self.repository = ArticleRepository(DbEngine())
         self.llm_service = LLMService()
         self.summarizer = WebSummarizer(self.llm_service)
-        self.mp3_dir = "data/speech/"
 
     def summarize_new_articles(self, site_url:str, article_prefix="/article/", max_articles:int=20):
 
@@ -38,4 +37,15 @@ class SummarizerService:
                 site = Site.create(url)
                 self.repository.add_site(site)
                 logger.info(f"new site: {url}")
+
+    def delete_old_articles(self, days_old:int):
+
+        old_articles=self.repository.get_old_articles(days_old= days_old, max_items= 2000)
+        for article in old_articles:
+            # delete from DB and Disk
+            logger.info(f"deleting article with id {article.id}...")
+            self.repository.delete_article(article)
+            logger.info(f"deleted article with id {article.id}!")
+
+        return old_articles
 

@@ -4,6 +4,7 @@ from model.article import Article, Site, ArticleRead
 from repository.dbengine import DbEngine
 from sqlalchemy.orm import aliased
 from sqlalchemy import not_
+from utility.file_utility import FileUtility
 
 
 class ArticleRepository:
@@ -109,6 +110,37 @@ class ArticleRepository:
             session.commit()
         finally:
             session.close()
+
+    def get_old_articles(self, days_old:int, max_items:int=5):
+        session = self.db_engine.get_session()
+        try:
+            cutoff_date = datetime.today() - timedelta(days=days_old)
+            print(cutoff_date)
+            old_articles = session.query(Article)\
+                .filter(Article.update_date < cutoff_date)\
+                .order_by(Article.update_date.asc())\
+                .limit(max_items)\
+                .all()
+
+            session.expunge_all()
+            session.flush()
+            session.commit()
+            return old_articles
+        finally:
+            session.close()
+
+    def delete_article(self, article:Article):
+        session = self.db_engine.get_session()
+        try:
+            article = session.merge(article)
+            FileUtility.delete_file(article.speech_file)
+            session.delete(article)
+
+            session.flush()
+            session.commit()
+        finally:
+            session.close()
+
 
 
 

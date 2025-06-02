@@ -14,3 +14,7 @@ class FileUtility:
     @staticmethod
     def get_speech_root_path() -> str:
         return "data/speech/" # TODO get from config
+
+    @staticmethod
+    def delete_file(file_path):
+        os.remove(file_path)
