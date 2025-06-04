@@ -21,7 +21,12 @@ class DbEngine:
             return
 
         # Create the database tables if they don't exist
-        self.engine = create_engine(config.app_settings["database_url"])#, echo=True)
+        self.engine = create_engine(
+            config.app_settings["database_url"],
+                pool_pre_ping=True,          # test connection before using it
+                pool_recycle=300,            # recycle connection every 5 minutes
+        )
+        #, echo=True)
         self.createDefaults(self.engine)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
