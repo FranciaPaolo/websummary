@@ -27,7 +27,7 @@ class LLMService:
 
     def summarize_documents(self, docs) -> str:
         self.prompt = ChatPromptTemplate.from_messages([
-            ("system", "Write a very short summary of the following, stick to the summary no preamble:\n\n{context}")
+            ("system", "Article:\n\n\n{context}\n\n\nWrite a short summary of the above article. Respond with only the summary, no commentary.")
         ])
         self.chain = create_stuff_documents_chain(self.llm, self.prompt)
         result=self.chain.invoke({"context": docs})
@@ -44,7 +44,7 @@ class LLMService:
 
     def get_title(self, text) -> str:
         self.prompt = ChatPromptTemplate.from_messages([
-            ("system", "Provide a title for the following text, response only with the title:\n\n{context}")
+            ("system", "Article:\n\n\n{context}\n\n\nWrite a very short title of the above article. Respond with only the title, no commentary.")
         ])
         docs = [Document(page_content=text)]
         self.chain = create_stuff_documents_chain(self.llm, self.prompt)
